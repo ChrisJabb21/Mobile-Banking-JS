@@ -1,10 +1,10 @@
 
 ## Project overview
-Full Stack Banking web app made with Full Stack JavaScript using the PERN Tech Stack. 
-technologies used: JavaScript, Express, React, and Node JS framworks, Backend: PostgreSQL 
-mentions: bycrypt for password encryption in database, JWT, Router, and Redux.
+Full Stack Banking web app made with Full Stack JavaScript using the PERN Tech Stack.<br> 
+technologies used: JavaScript, Express, React, and Node JS framworks, Backend: PostgreSQL<br>
+mentions: bycrypt for password encryption in database, JWT, Router, and Redux.<br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).<br>
 Database was hosted on [ElephantSQL](https://www.elephantsql.com/).
 ## Available Scripts
 
@@ -45,9 +45,10 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).  
+The [React documentation](https://reactjs.org/). </br>
+The [ExpressJS documentation](https://expressjs.com/). </br>
+The [NodeJS documentation](https://nodejs.org/en/).  
 
 ### Code Splitting
 
