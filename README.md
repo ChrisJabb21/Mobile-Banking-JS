@@ -1,3 +1,6 @@
+
+## Full Stack Banking web app made with Full Stack JavaScript using the PERN Tech Stack.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
