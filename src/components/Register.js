@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
 import { validateFields } from '../utils/common';
 import { Link } from 'react-router-dom';
+import { registerNewUser } from '../actions/auth';
 
 class Register extends React.Component {
-
+  
     state = {
         first_name: '',
         last_name: '',
@@ -47,9 +48,23 @@ class Register extends React.Component {
                         signup_error: 'Passwords do not match.'
                     }
                 });
-        } else {
-            this.setState({isSubmitte: true});
-            }
+        } 
+        
+        else {
+            this.setState({isSubmitted: true});
+            this.props
+            .dispatch(registerNewUser({
+              first_name, last_name, email, password
+            }))
+            .then((response) => {
+              if (response.success) {
+                this.setState({
+                  successMsg:'Registration successful.',
+                  errorMsg: ''
+                });
+              }
+            });
+          }
         }
     };
 

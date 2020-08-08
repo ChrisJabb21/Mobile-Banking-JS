@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
+import { initiateLogin } from '../actions/auth';
 import { validateFields } from '../utils/common';
 import { Link } from 'react-router-dom';
 
+//TODO login is not working
 class Login extends React.Component {
     state = {
         email: '',
@@ -32,6 +34,7 @@ class Login extends React.Component {
                 }
             });
             //login successful
+            this.props.dispatch(initiateLogin(email,password));
         }
     };
 
@@ -78,13 +81,13 @@ render() {
                         placeholder="Enter password..." 
                         onChange = {this.handleInputChange}
                         />
-                    </Form.Group>                    
+                    </Form.Group>
                     <div className= "action-items">
                     <Button variant="primary" type="submit">
                         Login
                     </Button>
                     <Link to="/register" className = "btn btn-secondary">
-                        Register new Account
+                        Create Account
                     </Link>
                 </div>
             </Form>
