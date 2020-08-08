@@ -1,8 +1,8 @@
 
 ## Project overview
-Full Stack Banking web app made with Full Stack JavaScript using the PERN Tech Stack.<br> 
-technologies used: JavaScript, Express, React, and Node JS framworks, Backend: PostgreSQL<br>
-mentions: bycrypt for password encryption in database, JWT, Router, and Redux.<br>
+Full Stack Banking web app made with Full Stack JavaScript using the PERN Tech Stack. Status(WIP) <br> 
+technologies used: JavaScript language, Bootstrap, Express, React for frontend, and NodeJS framworks, Backend: PostgreSQL<br>
+mentions: bycrypt for password encryption in database, JSON Web Tokens (JWT) for authenication .<br>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).<br>
 Database was hosted on [ElephantSQL](https://www.elephantsql.com/).
