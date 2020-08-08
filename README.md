@@ -5,7 +5,7 @@ technologies used: JavaScript, Express, React, and Node JS framworks, Backend: P
 mentions: bycrypt for password encryption in database, JWT, Router, and Redux.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+Database was hosted on [ElephantSQL](https://www.elephantsql.com/).
 ## Available Scripts
 
 In the project directory, you can run:
