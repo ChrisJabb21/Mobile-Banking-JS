@@ -11,7 +11,7 @@ class AddAccountForm extends React.Component{
     }
 
     comoponentDidUpdate(prevProps, prevState) {
-        if (!_isEqual(prevProps.errors, this.props.errors)){
+        if (!_.isEqual(prevProps.errors, this.props.errors)){
             this.setState({ errorMsg: this.props.errors });
         }
     }

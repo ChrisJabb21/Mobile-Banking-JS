@@ -10,7 +10,7 @@ export const setAccount = (accountDetails) => ({
 });
 
 export const updateAccountBalance = (amountToChange,operation) => ({
-    type: SET_ACCOUNT,
+    type: UPDATE_ACCOUNT,
     amountToChange,
     operation
 });
@@ -18,7 +18,7 @@ export const updateAccountBalance = (amountToChange,operation) => ({
 export const initiateGetAccntDetails = () => {
     return async (dispatch) => {
         try{
-            const account = await get(`${Base_API_URL/account}`);
+            const account = await get(`${BASE_API_URL}/account`);
             return dispatch(setAccount(account.data));
         } catch (error) {
             error.response && dispatch(getErrors(error.response.data));
@@ -30,7 +30,7 @@ export const initiateGetAccntDetails = () => {
 export const initiateAddAccntDetails = (account_no) => {
     return async (dispatch) => {
         try{
-             return await get(`${Base_API_URL}/account`, {
+             return await post(`${BASE_API_URL}/account`, {
                  account_no
             });
 

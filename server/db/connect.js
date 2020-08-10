@@ -8,7 +8,17 @@ const pool = new Pool({
     database:'nqrwoocv'
 });
 
-module.exports = { pool };
+const getClient  = async () => {
+    try {
+
+        const client = await pool.connect();
+        return client;
+    } catch (error) {
+        return null;
+    }
+};
+
+module.exports = { pool, getClient };
 
 /* Server 	ruby.db.elephantsql.com (ruby-01)
 User & Default database 	nqrwoocv

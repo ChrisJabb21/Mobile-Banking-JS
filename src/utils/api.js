@@ -21,8 +21,7 @@ export const get = async (
       url,
       params,
       shouldSetAuthHeader = true,
-      shouldRemoveAuthHeader = false
-    ) => {
+      shouldRemoveAuthHeader = false) => {
       if (shouldSetAuthHeader) {
         setAuthHeader();
       }

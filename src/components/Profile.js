@@ -36,7 +36,7 @@ class Profile extends React.Component {
             });
         }
         if(!_.isEqual(prevProps.profile, this.props.profile)){
-            const{ first_name, last_name, email} = this.props.profile;
+            const { first_name, last_name, email} = this.props.profile;
             this.setState({ first_name, last_name, email });
         }
     }

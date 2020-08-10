@@ -3,14 +3,18 @@ import thunk from 'redux-thunk';
 import authReducer from '../reducers/auth';
 import errorsReducer from '../reducers/errors';
 import profileReducer from '../reducers/profile';
-
+import accountReducer from '../reducers/account';
+import transactionsReducer from '../reducers/transactions';
+//add transactions component action, reducer, and import to source
 
 const composeEnhancers = (process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null) || compose;
  const store = createStore(
      combineReducers({
          auth: authReducer,
          errors: errorsReducer,
-         profile: profileReducer
+         profile: profileReducer,
+         transactions: transactionsReducer,
+         account: accountReducer
      }),
      composeEnhancers(applyMiddleware(thunk))
  );

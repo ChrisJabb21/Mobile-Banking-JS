@@ -8,8 +8,10 @@ import {
   initiateAddAccntDetails,
   initiateUpdateAccntDetails
 } from '../actions/account';
+
+import { initiateWithdrawAmount, initiateDepositAmount } from '../actions/transactions' 
+
 import { resetErrors } from '../actions/errors';
-import { validateFields } from '../utils/common';
 import { maskNumber } from '../utils/mask';
 import AddAccountForm from './AddAccountForm';
 
@@ -18,8 +20,9 @@ class AccountForm extends React.Component {
 
     state = {
         amount: '',
-        editAccount: false,
         account: this.props.account,
+        editAccount: false,
+        account_no: '',
         errorMsg: ''
     };
 
@@ -35,10 +38,10 @@ class AccountForm extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-      if(!_isEqual(prevProps.account, this.props.account)) {
+      if(!_.isEqual(prevProps.account, this.props.account)) {
         this.setState({ account: this.props.account});
       }
-      if(!_isEqual(prevProps.errors,this.props.errors)){
+      if(!_.isEqual(prevProps.errors,this.props.errors)){
         this.setState({errorMsg: this.props.error});
         }
       } 
@@ -98,7 +101,7 @@ class AccountForm extends React.Component {
           errorMsg: ''
         });
       } else if (selectedType === 'deposit') {
-        this.props.dispatch(initateDepositAmount(account.account_id, amount));
+        this.props.dispatch(initiateDepositAmount(account.account_id, amount));
         this.setState({
         errorMsg: ''
       });
@@ -208,9 +211,9 @@ render() {
 }
 
 const mapStateToProps = (state) => ({
-email: state.auth && state.auth.email,
-account: state.account,
-errors: state.errors
+  email: state.auth && state.auth.email,
+  account: state.account,
+  errors: state.errors
 });
 
 export default connect(mapStateToProps)(AccountForm);
