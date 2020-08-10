@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
 import { validateFields } from '../utils/common';
 import { Link } from 'react-router-dom';
+import _ from 'lodash';
+import { resetErrors } from '../actions/errors';
 import { registerNewUser } from '../actions/auth';
 
 class Register extends React.Component {
@@ -17,6 +19,16 @@ class Register extends React.Component {
         errorMsg: '',
         isSubmitted: false
     };
+
+       //Lifecycle methods for mounting and updating
+       componentDidUpdate(prevProps){
+        if (!_.isEqual(prevProps.errors, this.props.errors)){
+            this.setState({ errorMsg: this.props.errors });
+        }
+      }
+        componentWillUnmount() {
+          this.props.dispatch(resetErrors());
+      }
 
     /** Register a user and check if fields are filled.
      * Event handler method
@@ -38,7 +50,7 @@ class Register extends React.Component {
         if(!allFieldsEntered) {
             this.setState({
                 errorMsg: {
-                    signup_error: 'Please enter all the fields.'
+                    signup_error: 'Please field in all the fields.'
                 }
             });
         } else {
@@ -152,5 +164,8 @@ render() {
     );
   }
 }
+const mapStateToProps = (state) => ({
+  errors: state.errors
+});
 
-export default connect()(Register);
+export default connect(mapStateToProps)(Register);

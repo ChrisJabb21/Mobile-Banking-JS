@@ -23,11 +23,12 @@ CREATE TABLE TOKENS(
 //TODO add to online test database and test
 
 CREATE TABLE account(
+    userid BIGSERIAL NOT NULL,
     account_id BIGSERIAL PRIMARY KEY NOT NULL,
     account_no BIGINT NOT NULL,
-    userid BIGSERIAL NOT NULL,
     total_balance DECIMAL NOT NULL DEFAULT 0,
     /*account_type ENUM('Checking', 'Savings') NOT NULL */
+    /* bank_name VARCHAR(50) NOT NULL,*/
     FOREIGN KEY(userid) references customer(userid)
 );
 

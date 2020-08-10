@@ -33,7 +33,7 @@ Router.post('/signup', async (req, res) => {
     }
 
     const result = await pool.query(
-      'select count(*) as count from bank_user where email=$1',
+      'select count(*) as count from customer where email=$1',
       [email]
     );
     const count = result.rows[0].count;
@@ -45,7 +45,7 @@ Router.post('/signup', async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 8);
     await pool.query(
-      'insert into bank_user(first_name, last_name, email, password) values($1,$2,$3,$4)',
+      'insert into customer(first_name, last_name, email, password) values($1,$2,$3,$4)',
       [first_name, last_name, email, hashedPassword]
     );
     res.status(201).send();

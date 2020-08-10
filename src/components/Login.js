@@ -1,17 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import { Form, Button } from 'react-bootstrap';
+import { resetErrors } from '../actions/errors';
 import { initiateLogin } from '../actions/auth';
 import { validateFields } from '../utils/common';
 import { Link } from 'react-router-dom';
 
-//TODO login is not working
 class Login extends React.Component {
     state = {
         email: '',
         password: '',
-        errorMsg: '',
+        errorMsg: '' // login error message 
     };
+
+    //Lifecycle methods for mounting and updating
+    componentDidUpdate(prevProps){
+    if (!_.isEqual(prevProps.errors, this.props.errors))
+    {
+        this.setState({ errorMsg: this.props.errors });
+    }
+
+    }
+
+    componentWillUnmount() {
+        this.props.dispatch(resetErrors());
+    }
+
     /** Handle the login event.
      * @param {*} event 
      */
@@ -44,6 +59,7 @@ class Login extends React.Component {
     handleInputChange = (event) => {
         const { name, value } = event.target;
 
+        
         this.setState({
             [name]: value
         });
@@ -53,7 +69,7 @@ render() {
     const { errorMsg } = this.state;
     return (
         <div className="login-page">
-            <h1>Moolah Banking</h1>
+            <h1>Moolah Banking App</h1>
             <div className="login-form">
                 <Form onSubmit={this.handleLogin}>
                     {errorMsg && errorMsg.signin_error && (
@@ -96,4 +112,8 @@ render() {
     );
   }
 }
-export default connect()(Login);
+const mapStateToProps = (state) => ({
+        errors: state.errors
+    });
+
+export default connect(mapStateToProps)(Login);

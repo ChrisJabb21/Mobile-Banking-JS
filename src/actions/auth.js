@@ -1,6 +1,9 @@
-import {SIGN_IN, BASE_API_URL} from '../utils/constants';
 import axios from 'axios';
-
+import { SIGN_IN, SIGN_OUT, BASE_API_URL } from '../utils/constants';
+import { initiateGetProfile } from './profile';
+import { history } from '../router/AppRouter';
+import { getErrors } from './errors';
+import { post } from '../utils/api';
 {/*Actions define how to send data from application to the store or global state  */}
 
 export const signIn = (user) => ({
@@ -19,6 +22,8 @@ export const initiateLogin = (email, password) =>
             const user = result.data;
             localStorage.setItem('user_token', user.token);
             dispatch(signIn(user));
+            dispatch(initiateGetProfile(user.email));
+            history.push('/profile');
         } 
             catch (error) {
             console.log('error', error);
@@ -40,3 +45,21 @@ export const initiateLogin = (email, password) =>
          }
      };
  };
+
+
+ 
+export const signOut = () => ({
+    type: SIGN_OUT
+  });
+  
+  export const initiateLogout = () => {
+    return async (dispatch) => {
+      try {
+        await post(`${BASE_API_URL}/logout`, true, true);
+        localStorage.removeItem('user_token');
+        return dispatch(signOut());
+      } catch (error) {
+        error.response && dispatch(getErrors(error.response.data));
+      }
+    };
+  };

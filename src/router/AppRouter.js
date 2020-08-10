@@ -1,30 +1,38 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
+import React from 'react';
+import { connect } from 'react-redux';
+import _ from 'lodash'; 
+import { Route, Switch, Router } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import Login from '../components/Login';
 import Register from '../components/Register';
+import Profile from '../components/Profile';
+import Logout from '../components/Logout';
+import Header from '../components/Header';
+import Account from '../components/Account';
 
-{/* Browser Router is router 
-    that makes use of the 
-    HTML5 history API (pushState, replaceState, popstate event) to keep your UI in sync with URL
-    https://reactrouter.com/web/api/BrowserRouter
-*/}
+export const history = createBrowserHistory();
 
-const AppRouter = () => {
-  return (
-    <BrowserRouter>
+const AppRouter = ({ auth }) => {
+  return(
+  <Router history= {history}>
+    <div>
+      {!_.isEmpty(auth.token) && <Header />}
       <div className="container">
         <Switch>
           <Route path="/" component={Login} exact={true} />
           <Route path="/register" component={Register} />
+          <Route path="/account" component={Account} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/logout" component={Logout} />
         </Switch>
       </div>
-    </BrowserRouter>
+      </div>
+  </Router>
   );
 };
 
 const mapStateToProps = (state) => ({
-    authentication: state.authentication
+    auth: state.auth
 });
 
 export default connect(mapStateToProps)(AppRouter);
