@@ -12,7 +12,7 @@ Router.post('/deposit/:id', authMiddleware, async (req, res) => {
     try{
         await client.query('begin');
         const{ transaction_date, deposit_amount } = req.body;
-        const account_id = req.param.id;
+        const account_id = req.params.id;
         const result = await client.query(
             'select total_balance from account where account_id =$1',
             [account_id]
