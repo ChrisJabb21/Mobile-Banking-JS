@@ -1,7 +1,7 @@
 
 ## Project overview
 Banking web app made with Full Stack JavaScript using the PERN Tech Stack. <br> 
-technologies used: JavaScript language, Bootstrap, Express, React for frontend, and NodeJS frameworks, Backend: PostgreSQL<br>
+technologies used: JavaScript language, Bootstrap, Express, React (Redux) for frontend, and NodeJS frameworks, Backend: PostgreSQL<br>
 mentions: bycrypt for password encryption in database, JSON Web Tokens (JWT) for customer account authenication.<br>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).<br>
@@ -50,7 +50,8 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).  
 The [React documentation](https://reactjs.org/). </br>
 The [ExpressJS documentation](https://expressjs.com/). </br>
-The [NodeJS documentation](https://nodejs.org/en/).  
+The [NodeJS documentation](https://nodejs.org/en/).  </br>
+The [Redux documentation](https://redux.js.org/introduction/getting-started#learn-redux). </br>
 
 ### Code Splitting
 
