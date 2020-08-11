@@ -29,7 +29,7 @@ class Profile extends React.Component {
         } 
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps, prevState) {
         if(!_.isEqual(prevProps.errors, this.props.errors)){
             this.setState({
                 errorMsg: this.prop.errors

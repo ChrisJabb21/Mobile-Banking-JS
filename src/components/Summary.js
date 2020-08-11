@@ -5,7 +5,7 @@ class Summary extends React.Component{
     render() {
         return(
             <div>
-                <p>Summary Page</p>
+                <p>Transaction Summary Page</p>
             </div>
         );
     }

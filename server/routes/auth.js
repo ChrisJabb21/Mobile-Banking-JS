@@ -10,6 +10,8 @@ const authMiddleware = require('../middleware/auth');
 
 const Router = express.Router();
 
+/*Authenication logic and routing for account handling and creation */
+
 Router.post('/signup', async (req, res) => {
   try {
     const { first_name, last_name, email, password } = req.body;

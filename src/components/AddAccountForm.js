@@ -17,7 +17,7 @@ class AddAccountForm extends React.Component{
     }
 
     handleInputChange = (event) => {
-        const {name, value } =event.target;
+        const { name, value } = event.target;
         this.setState({
             [name]: value
         });

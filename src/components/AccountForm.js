@@ -13,7 +13,7 @@ import { initiateWithdrawAmount, initiateDepositAmount } from '../actions/transa
 
 import { resetErrors } from '../actions/errors';
 import { maskNumber } from '../utils/mask';
-import AddAccountForm from './AddAccountForm';
+import  AddAccountForm  from './AddAccountForm';
 
 class AccountForm extends React.Component {
 
@@ -83,7 +83,7 @@ class AccountForm extends React.Component {
 
       const allFieldsEntered = validateFields(fieldsToValidate);
 
-      if(!allFieldsEntered){
+      if(!allFieldsEntered) {
           this.setState({
             errorMsg: {
               [selectedType === 'withdraw' 
@@ -91,10 +91,11 @@ class AccountForm extends React.Component {
             }
           });
         } else {
-        let { total_balance } = amount;
+        let { total_balance } = account;
         amount = +amount;
         total_balance = +total_balance; //Unary plus operater to convert variables to numbers.
       //if amount is less or equal to balance
+      
       if(selectedType === 'withdraw' && amount <= total_balance) {
         this.props.dispatch(initiateWithdrawAmount(account.account_id, amount));
         this.setState({

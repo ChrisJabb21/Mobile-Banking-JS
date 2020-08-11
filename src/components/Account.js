@@ -28,6 +28,7 @@ class Account extends React.Component {
           >
             Withdraw
           </Button>
+          
           <Button
             variant="secondary"
             className={`${

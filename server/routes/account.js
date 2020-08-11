@@ -5,7 +5,9 @@ const { pool } = require('../db/connect');
 //router object
 const Router = express.Router();
 
-/*Database retrival functions */
+/* Account retrival and creation*/
+/* Backend Database logic for account routing */
+
 const getAccountByAccountId = async function (account_id) {
     try {
         const result = await pool.query(

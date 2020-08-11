@@ -4,7 +4,9 @@ import { initiateGetProfile } from './profile';
 import { history } from '../router/AppRouter';
 import { getErrors } from './errors';
 import { post } from '../utils/api';
-{/*Actions define how to send data from application to the store or global state  */}
+{/*Actions define how to send data from application to the store or global state 
+They are carried to the store using store.dispatch()
+*/}
 
 export const signIn = (user) => ({
     type: SIGN_IN,

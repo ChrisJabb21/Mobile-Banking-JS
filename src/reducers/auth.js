@@ -4,9 +4,10 @@ import { SIGN_IN, SIGN_OUT } from '../utils/constants';
 {/* A reducer is a pure 
 fcn that takes the previous state
  and an action and returns the next state. 
+ takes the action and carries it to store object.
 
- It is like a converter
-  for built-in state objects
+ It is like a converter for built-in state objects
+
   the state object is what holds property values of a component
   When state object changes the component rerenders  
 */}

@@ -1,7 +1,7 @@
-CREATE DATABASE banking_app;
+CREATE DATABASE banking_app;   /*nameOfDatabase*/
 
 /* use \c to connect to database*/
-\c banking_appl;
+\c banking_appl;  
 
 
 CREATE TABLE customer (
@@ -9,7 +9,7 @@ CREATE TABLE customer (
     first_name VARCHAR(32) NOT NULL,
     last_name VARCHAR(32) NOT NULL,
     email VARCHAR(32) NOT NULL,
-    pass_word VARCHAR(255) NOT NULL,
+    pass_word VARCHAR(255) NOT NULL, /* pass_word as password is reserved keyword, can rename column password once created*/
     unique(email)
 );
 
@@ -31,9 +31,6 @@ CREATE TABLE account(
     /* bank_name VARCHAR(50) NOT NULL,*/
     FOREIGN KEY(userid) references customer(userid)
 );
-
-
-
 CREATE TABLE transactions(
     id BIGSERIAL PRIMARY KEY NOT NULL,
     transaction_date TIMESTAMP NOT NULL,
@@ -44,3 +41,9 @@ CREATE TABLE transactions(
     account_id BIGSERIAL NOT NULL,
     FOREIGN KEY(account_id) REFERENCES account(account_id)
 );
+/* TODO:
+issue in account and transaction.
+balanace showing in scientific notation in postgresql in elephantsql db,
+ looking for work around. 
+ maybe multiply remaining balance in transactions by 10 in data insertion queries,
+  */
