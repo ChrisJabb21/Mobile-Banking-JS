@@ -6,11 +6,11 @@ Libraries used: bycryptjs for password encryption in database, JSON Web Tokens (
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).<br>
 Database was hosted on [ElephantSQL](https://www.elephantsql.com/). <br>
-Status(Functional, can be expanded on and improved) 
+Status: WIP (Functional, can be expanded on and improved) 
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory (in server and src/frontend directory), you can run:
 
 ### `yarn start`
 
